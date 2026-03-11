@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin Login — Aurenyx BD</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0c12;--bg2:#111320;--bg3:#181c2e;
+  --acc:#6366f1;--acc-l:#818cf8;--acc-d:#4f46e5;
+  --wh:#fff;--ink:rgba(255,255,255,.85);--ink2:rgba(255,255,255,.45);--ink3:rgba(255,255,255,.2);
+  --bd:rgba(255,255,255,.08);--bd2:rgba(99,102,241,.3);
+  --err:#ef4444;
+}
+html,body{height:100%}
+body{font-family:'Inter',sans-serif;font-weight:300;background:var(--bg);color:var(--ink);display:flex;align-items:center;justify-content:center;padding:20px;position:relative;overflow:hidden}
+/* Background decoration */
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -20%,rgba(99,102,241,.18) 0%,transparent 60%);pointer-events:none}
+body::after{content:'';position:fixed;bottom:-20%;left:-10%;width:60%;height:80%;background:radial-gradient(ellipse,rgba(99,102,241,.07) 0%,transparent 70%);pointer-events:none;border-radius:50%}
+/* Grid overlay */
+.grid-bg{position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}
+
+.login-wrap{width:100%;max-width:420px;position:relative;z-index:10;animation:slideUp .5s cubic-bezier(.23,1,.32,1) both}
+@keyframes slideUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+.login-card{background:var(--bg2);border:1px solid var(--bd);border-radius:16px;padding:clamp(32px,5vw,48px);box-shadow:0 32px 64px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.06)}
+
+/* Logo */
+.login-logo{text-align:center;margin-bottom:36px}
+.logo-icon{width:52px;height:52px;background:linear-gradient(135deg,var(--acc),var(--acc-d));border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;box-shadow:0 8px 24px rgba(99,102,241,.4)}
+.logo-icon svg{color:#fff}
+.logo-name{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:700;color:var(--wh);letter-spacing:.06em}
+.logo-sub{font-size:.7rem;color:var(--ink2);letter-spacing:.18em;text-transform:uppercase;margin-top:4px}
+
+/* Form */
+.login-title{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:600;color:var(--wh);margin-bottom:6px}
+.login-subtitle{font-size:.78rem;color:var(--ink2);margin-bottom:28px;line-height:1.6}
+
+.field{margin-bottom:18px}
+.field-label{display:flex;justify-content:space-between;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin-bottom:7px}
+.field-input{width:100%;padding:12px 15px;background:rgba(255,255,255,.05);border:1px solid var(--bd);border-radius:8px;color:var(--wh);font-family:'Inter',sans-serif;font-size:.9rem;outline:none;transition:all .2s;-webkit-appearance:none}
+.field-input::placeholder{color:var(--ink3)}
+.field-input:focus{border-color:var(--acc);background:rgba(99,102,241,.06);box-shadow:0 0 0 3px rgba(99,102,241,.15)}
+.field-input.error{border-color:var(--err);background:rgba(239,68,68,.06)}
+.field-error{font-size:.7rem;color:var(--err);margin-top:5px;display:none}
+.field-error.show{display:block}
+
+.pw-wrap{position:relative}
+.pw-toggle{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--ink2);padding:4px;transition:color .2s;cursor:pointer}
+.pw-toggle:hover{color:var(--ink)}
+
+.btn-login{width:100%;padding:13px;background:linear-gradient(135deg,var(--acc),var(--acc-d));color:#fff;font-family:'Syne',sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:none;border-radius:8px;cursor:pointer;transition:all .22s;margin-top:6px;display:flex;align-items:center;justify-content:center;gap:8px;position:relative;overflow:hidden}
+.btn-login::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--acc-l),var(--acc));opacity:0;transition:opacity .22s}
+.btn-login:hover::before{opacity:1}
+.btn-login:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(99,102,241,.45)}
+.btn-login:active{transform:translateY(0)}
+.btn-login span{position:relative}
+.btn-login:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+
+.spin{width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top:2px solid #fff;border-radius:50%;animation:sp .7s linear infinite;display:none;position:relative}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+.alert{padding:12px 14px;border-radius:8px;font-size:.78rem;margin-bottom:18px;display:none;align-items:center;gap:9px;line-height:1.5}
+.alert-err{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.25);color:#fca5a5}
+.alert-err.show{display:flex}
+
+.login-footer{margin-top:32px;text-align:center;font-size:.68rem;color:var(--ink3);border-top:1px solid var(--bd);padding-top:22px}
+.login-footer a{color:var(--ink2);text-decoration:none;transition:color .2s}
+.login-footer a:hover{color:var(--acc-l)}
+
+/* Security badge */
+.sec-badge{display:flex;align-items:center;gap:6px;font-size:.64rem;color:var(--ink2);margin-top:16px;justify-content:center}
+.sec-dot{width:6px;height:6px;background:#22c55e;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<div class="login-wrap">
+  <div class="login-card">
+    <div class="login-logo">
+      <div class="logo-icon">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      </div>
+      <div class="logo-name">AURENYX BD</div>
+      <div class="logo-sub">Admin Portal</div>
+    </div>
+
+    <div class="login-title">Welcome back</div>
+    <div class="login-subtitle">Sign in with your administrator credentials to access the dashboard.</div>
+
+    <div class="alert alert-err" id="alertErr">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <span id="alertMsg">Invalid credentials</span>
+    </div>
+
+    <form id="loginForm" onsubmit="doLogin(event)">
+      <div class="field">
+        <label class="field-label" for="adminId">Admin ID</label>
+        <input class="field-input" type="text" id="adminId" placeholder="Enter admin ID" autocomplete="username" required>
+        <div class="field-error" id="errId">Please enter your admin ID</div>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="password">Password</label>
+        <div class="pw-wrap">
+          <input class="field-input" type="password" id="password" placeholder="Enter password" autocomplete="current-password" required>
+          <button type="button" class="pw-toggle" onclick="togglePw()" title="Toggle visibility">
+            <svg id="pwEyeOpen" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg id="pwEyeClosed" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+          </button>
+        </div>
+        <div class="field-error" id="errPw">Please enter your password</div>
+      </div>
+
+      <button type="submit" class="btn-login" id="loginBtn">
+        <span id="loginTxt">Sign In</span>
+        <div class="spin" id="loginSpin"></div>
+      </button>
+    </form>
+
+    <div class="sec-badge">
+      <div class="sec-dot"></div>
+      Secured connection · Session expires in 8 hours
+    </div>
+
+    <div class="login-footer">
+      <a href="/">← Back to store</a>
+      &nbsp;·&nbsp;
+      <a href="#">Forgot credentials? Contact IT</a>
+    </div>
+  </div>
+</div>
+
+<script>
+function togglePw() {
+  const inp = document.getElementById('password');
+  const open = document.getElementById('pwEyeOpen');
+  const closed = document.getElementById('pwEyeClosed');
+  if (inp.type === 'password') {
+    inp.type = 'text'; open.style.display = 'none'; closed.style.display = '';
+  } else {
+    inp.type = 'password'; open.style.display = ''; closed.style.display = 'none';
+  }
+}
+
+let attempts = 0;
+let lockUntil = 0;
+
+async function doLogin(e) {
+  e.preventDefault();
+  const alertEl = document.getElementById('alertErr');
+  alertEl.classList.remove('show');
+
+  // Rate limiting
+  if (Date.now() < lockUntil) {
+    const sec = Math.ceil((lockUntil - Date.now()) / 1000);
+    document.getElementById('alertMsg').textContent = `Too many attempts. Please wait ${sec}s.`;
+    alertEl.classList.add('show'); return;
+  }
+
+  const adminId  = document.getElementById('adminId').value.trim();
+  const password = document.getElementById('password').value;
+  if (!adminId || !password) return;
+
+  const btn  = document.getElementById('loginBtn');
+  const txt  = document.getElementById('loginTxt');
+  const spin = document.getElementById('loginSpin');
+  btn.disabled = true; txt.textContent = 'Signing in…'; spin.style.display = '';
+
+  try {
+    const res = await fetch('/api/admin/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ adminId, password })
+    });
+    if (res.ok) {
+      txt.textContent = 'Success!';
+      setTimeout(() => { window.location.href = '/admin/dashboard'; }, 500);
+    } else {
+      attempts++;
+      if (attempts >= 5) { lockUntil = Date.now() + 30000; attempts = 0; }
+      document.getElementById('alertMsg').textContent = 'Invalid Admin ID or Password. Please try again.';
+      alertEl.classList.add('show');
+      document.getElementById('password').value = '';
+      document.getElementById('password').classList.add('error');
+      setTimeout(() => document.getElementById('password').classList.remove('error'), 1500);
+      btn.disabled = false; txt.textContent = 'Sign In'; spin.style.display = 'none';
+    }
+  } catch(err) {
+    document.getElementById('alertMsg').textContent = 'Network error. Please check your connection.';
+    alertEl.classList.add('show');
+    btn.disabled = false; txt.textContent = 'Sign In'; spin.style.display = 'none';
+  }
+}
+</script>
+</body>
+</html>

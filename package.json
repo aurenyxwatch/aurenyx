@@ -1,0 +1,12 @@
+{
+  "name": "aurenyx-bd",
+  "version": "1.0.0",
+  "description": "Aurenyx BD - Secure E-Commerce with Admin Panel",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

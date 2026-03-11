@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<meta name="description" content="Aurenyx BD — Bangladesh's premium analog watch brand.">
+<meta name="theme-color" content="#1a1814">
+<title>AURENYX BD — Premium Analog Watches</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g:#b8973e;--gl:#cfa84f;--gd:#7a6028;
+  --bg:#fafaf8;--bg2:#f4f3ef;--bg3:#eeece7;
+  --ink:#1a1814;--ink2:#5a5650;--ink3:#9a9590;
+  --wh:#fff;--bd:#e0ddd6;
+  --sh:0 2px 16px rgba(0,0,0,.07);--sh2:0 8px 36px rgba(0,0,0,.12);
+  --bkash:#e2136e;--nagad:#f05a22;--rocket:#8b0000;
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--bg);color:var(--ink);overflow-x:hidden;min-width:320px}
+img{display:block;max-width:100%;height:auto}
+a{text-decoration:none;color:inherit}
+button{font-family:'DM Sans',sans-serif;cursor:pointer}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--g)}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:600;background:rgba(250,250,248,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--bd);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 max(16px,3vw);gap:12px}
+.logo{font-family:'Playfair Display',serif;font-size:clamp(1rem,2.5vw,1.25rem);letter-spacing:.12em;color:var(--ink);white-space:nowrap;flex-shrink:0;display:flex;flex-direction:column;line-height:1.1;text-decoration:none}
+.logo-name{white-space:nowrap;display:block}
+.logo span{color:var(--g)}
+.logo-sub{font-size:.42rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink3);margin-top:2px;white-space:nowrap}
+.nav-links{display:flex;gap:clamp(1rem,2.2vw,2rem);list-style:none;align-items:center}
+.nav-links a{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);transition:color .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--g)}
+.nav-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.cart-btn{background:none;border:1px solid var(--bd);cursor:pointer;color:var(--ink);display:flex;align-items:center;gap:5px;font-size:.75rem;padding:7px 13px;transition:all .2s;white-space:nowrap}
+.cart-btn:hover{border-color:var(--g);color:var(--g);background:rgba(184,151,62,.06)}
+.badge{background:var(--g);color:#fff;font-size:.58rem;font-weight:500;width:17px;height:17px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s}
+.badge.on{opacity:1}
+.ham{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:1px solid var(--bd);padding:9px 10px;cursor:pointer;transition:border-color .2s}
+.ham:hover{border-color:var(--g)}
+.ham span{display:block;width:18px;height:1.5px;background:var(--ink);transition:all .3s;transform-origin:center}
+.ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.ham.open span:nth-child(2){opacity:0}
+.ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mob-nav{position:fixed;top:60px;left:0;right:0;background:var(--wh);border-bottom:1px solid var(--bd);box-shadow:var(--sh2);z-index:590;max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1)}
+.mob-nav.open{max-height:320px}
+.mob-nav ul{list-style:none;padding:6px 0 14px}
+.mob-nav a{display:block;padding:13px max(16px,3vw);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);border-bottom:1px solid var(--bg2);transition:color .2s}
+.mob-nav a:hover{color:var(--g)}
+
+/* ── BANNER ── */
+#bannerSection{display:none;width:100%;overflow:hidden;max-height:520px;background:var(--bg2)}
+#bannerSection img{width:100%;height:100%;object-fit:cover;max-height:520px;display:block}
+
+/* ── HERO ── */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:min(82vh,640px);align-items:center;padding:40px max(16px,4vw);gap:4vw;background:linear-gradient(140deg,var(--bg) 55%,var(--bg3) 100%)}
+.eyebrow{font-size:.62rem;letter-spacing:.35em;text-transform:uppercase;color:var(--g);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';width:24px;height:1px;background:var(--g);flex-shrink:0}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,4.2rem);font-weight:400;line-height:1.1;margin-bottom:1.1rem}
+h1 em{font-style:italic;color:var(--g)}
+.hero-sub{font-size:clamp(.82rem,.85vw+.55rem,.95rem);line-height:1.85;color:var(--ink2);max-width:420px;margin-bottom:2rem}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:clamp(10px,1.2vw,13px) clamp(16px,2vw,26px);font-size:clamp(.66rem,.7vw+.38rem,.76rem);font-weight:500;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;border:none;transition:all .22s;line-height:1}
+.btn-dark{background:var(--ink);color:#fff}.btn-dark:hover{background:var(--g);transform:translateY(-1px);box-shadow:0 4px 14px rgba(184,151,62,.35)}
+.btn-ghost{background:none;border:1px solid var(--bd);color:var(--ink2)}.btn-ghost:hover{border-color:var(--g);color:var(--g);background:rgba(184,151,62,.06)}
+.btn-gold{background:var(--g);color:#fff}.btn-gold:hover{background:var(--gl);transform:translateY(-1px);box-shadow:0 4px 14px rgba(184,151,62,.4)}
+.btn-outline-gold{background:none;border:1.5px solid var(--g);color:var(--g)}.btn-outline-gold:hover{background:var(--g);color:#fff;transform:translateY(-1px)}
+.hero-visual{display:flex;justify-content:center;align-items:center;padding:clamp(20px,3vw,48px);position:relative}
+.hero-visual img{width:100%;max-width:400px;filter:drop-shadow(0 24px 48px rgba(0,0,0,.16));animation:float 5.5s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero-chip{position:absolute;bottom:clamp(20px,5%,60px);left:0;background:var(--wh);border:1px solid var(--bd);padding:12px 16px;box-shadow:var(--sh)}
+.chip-label{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);margin-bottom:3px}
+.chip-val{font-family:'Playfair Display',serif;font-size:1rem;color:var(--ink)}
+.pay-logos{display:flex;align-items:center;gap:8px;margin-top:1.4rem;flex-wrap:wrap}
+.pay-logo{display:flex;align-items:center;gap:4px;padding:4px 10px;border:1px solid var(--bd);font-size:.6rem;font-weight:600;letter-spacing:.05em;border-radius:3px;transition:all .2s}
+.pay-logo.bk{color:var(--bkash);border-color:rgba(226,19,110,.25);background:rgba(226,19,110,.04)}
+.pay-logo.ng{color:var(--nagad);border-color:rgba(240,90,34,.25);background:rgba(240,90,34,.04)}
+.pay-logo.rk{color:var(--rocket);border-color:rgba(139,0,0,.2);background:rgba(139,0,0,.03)}
+
+/* ── STRIP ── */
+.strip{background:var(--ink);padding:11px 0;overflow:hidden;white-space:nowrap}
+.strip-inner{display:inline-flex;animation:ticker 24s linear infinite}
+@keyframes ticker{to{transform:translateX(-50%)}}
+.strip-item{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.45);padding:0 2rem}
+.strip-item b{color:var(--g)}
+
+/* ── SECTIONS ── */
+.section{padding:clamp(52px,7vw,90px) max(16px,4vw)}
+h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.6rem);font-weight:400;line-height:1.15;margin-bottom:.7rem}
+h2 em{font-style:italic;color:var(--g)}
+.sec-sub{color:var(--ink2);font-size:clamp(.78rem,.8vw+.5rem,.9rem);line-height:1.8;max-width:460px}
+
+/* ── FILTERS ── */
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin:clamp(14px,2vw,22px) 0 clamp(16px,2.5vw,26px)}
+.flt{padding:6px 16px;background:none;border:1px solid var(--bd);border-radius:50px;font-family:'DM Sans',sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;color:var(--ink2);transition:all .2s}
+.flt.on,.flt:hover{background:var(--ink);border-color:var(--ink);color:#fff;transform:translateY(-1px)}
+
+/* ── PRODUCT GRID ── */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(148px,21vw,255px),1fr));gap:clamp(8px,1.4vw,14px)}
+.pcard{background:var(--wh);overflow:hidden;cursor:pointer;box-shadow:0 1px 6px rgba(0,0,0,.05);transition:transform .25s,box-shadow .25s}
+.pcard:hover{transform:translateY(-4px);box-shadow:var(--sh2)}
+.pcard.hidden{display:none}
+.pimg{aspect-ratio:1;background:var(--bg2);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.pimg img{width:76%;height:76%;object-fit:contain;transition:transform .5s;will-change:transform}
+.pcard:hover .pimg img{transform:scale(1.07)}
+.pbadge{position:absolute;top:8px;left:8px;padding:3px 8px;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+.b-new{background:var(--ink);color:#fff}.b-sale{background:#c0392b;color:#fff}.b-hot{background:var(--g);color:#fff}
+.pactions{position:absolute;inset:0;background:rgba(26,24,20,.52);display:flex;align-items:center;justify-content:center;gap:8px;opacity:0;transition:opacity .2s}
+.pcard:hover .pactions{opacity:1}
+.pac{width:40px;height:40px;background:var(--wh);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink);transform:translateY(8px);transition:transform .25s,background .2s}
+.pcard:hover .pac{transform:translateY(0)}
+.pcard:hover .pac:nth-child(2){transition-delay:.06s}
+.pac:hover{background:var(--g);color:#fff}
+.pinfo{padding:clamp(10px,1.4vw,15px);border-top:1px solid var(--bg2)}
+.pbrand{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--g);margin-bottom:3px}
+.pname{font-family:'Playfair Display',serif;font-size:clamp(.84rem,1vw+.38rem,.98rem);margin-bottom:6px;line-height:1.3}
+.pprices{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:10px}
+.pprice{font-size:clamp(.8rem,.9vw+.38rem,.9rem);font-weight:500}
+.pprice-old{font-size:.72rem;color:var(--ink3);text-decoration:line-through}
+.pbtns{display:flex;gap:6px;padding:0 clamp(10px,1.4vw,15px) clamp(10px,1.4vw,15px)}
+.pbtns .btn{flex:1;font-size:.58rem;padding:8px 6px;letter-spacing:.08em}
+.padd-mob{display:none;width:100%;padding:9px;background:var(--bg2);border:none;border-top:1px solid var(--bd);cursor:pointer;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);transition:background .2s,color .2s}
+.padd-mob:hover{background:var(--g);color:#fff}
+
+/* ── DELIVERY BANNER ── */
+.delivery-banner{background:var(--bg3);padding:clamp(28px,4vw,48px) max(16px,4vw);display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:clamp(16px,3vw,28px)}
+.db-item{display:flex;align-items:flex-start;gap:14px;transition:transform .2s}
+.db-item:hover{transform:translateY(-2px)}
+.db-icon{width:42px;height:42px;background:var(--g);display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
+.db-title{font-family:'Playfair Display',serif;font-size:.98rem;margin-bottom:4px}
+.db-desc{font-size:.76rem;color:var(--ink2);line-height:1.6}
+
+/* ── BRANDS ── */
+.brands-row{display:flex;gap:clamp(18px,3.5vw,48px);flex-wrap:wrap;justify-content:center;align-items:center;margin-top:clamp(22px,3vw,38px);padding:clamp(16px,2.5vw,28px) 0;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.brand-nm{font-family:'Playfair Display',serif;font-size:clamp(.82rem,1vw+.38rem,1.05rem);color:var(--ink3);letter-spacing:.12em;transition:color .2s,transform .2s;cursor:default;display:inline-block}
+.brand-nm:hover{color:var(--g);transform:translateY(-2px)}
+
+/* ── REVIEWS ── */
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,1.4vw,12px);margin-top:clamp(22px,3vw,44px)}
+.tcard{background:var(--bg2);padding:clamp(18px,2.8vw,32px);transition:background .2s,transform .25s,box-shadow .25s}
+.tcard:hover{background:var(--bg3);transform:translateY(-3px);box-shadow:var(--sh2)}
+.tstars{color:var(--g);font-size:.8rem;margin-bottom:11px;letter-spacing:2px}
+.ttext{font-family:'Playfair Display',serif;font-size:clamp(.86rem,.9vw+.4rem,.98rem);font-style:italic;line-height:1.7;margin-bottom:14px}
+.tauthor{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);display:flex;align-items:center;gap:8px}
+.tauthor::before{content:'';width:14px;height:1px;background:var(--gd)}
+
+/* ── NEWSLETTER ── */
+.nl{background:var(--bg3);text-align:center;padding:clamp(52px,7vw,90px) max(16px,4vw)}
+.nl-form{display:flex;max-width:440px;margin:clamp(18px,2.5vw,28px) auto 0;border:1px solid var(--bd);overflow:hidden}
+.nl-inp{flex:1;padding:13px 15px;min-width:0;background:var(--wh);border:none;outline:none;font-family:'DM Sans',sans-serif;font-size:.84rem;color:var(--ink)}
+.nl-inp::placeholder{color:var(--ink3)}
+.nl-sub{padding:13px clamp(14px,2vw,20px);background:var(--ink);color:#fff;border:none;cursor:pointer;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;transition:background .2s;white-space:nowrap}
+.nl-sub:hover{background:var(--g)}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:rgba(255,255,255,.55);padding:clamp(36px,5vw,68px) max(16px,4vw) clamp(18px,2.5vw,32px)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:clamp(22px,4vw,50px);margin-bottom:clamp(26px,3.5vw,48px)}
+.footer-brand{font-family:'Playfair Display',serif;font-size:1.4rem;color:#fff;letter-spacing:.1em;margin-bottom:9px}
+.footer-bd{font-size:.6rem;letter-spacing:.25em;color:var(--g);text-transform:uppercase;margin-bottom:10px}
+.footer-sub{font-size:.77rem;line-height:1.8;max-width:215px;margin-bottom:18px}
+.footer-pay{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.fp-badge{padding:3px 8px;border:1px solid rgba(255,255,255,.12);font-size:.58rem;font-weight:600;border-radius:2px;transition:border-color .2s}
+.fp-badge:hover{border-color:rgba(255,255,255,.35)}
+.footer-hl{font-size:.57rem;letter-spacing:.28em;text-transform:uppercase;color:var(--g);margin-bottom:15px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-links a{font-size:.77rem;transition:color .2s,transform .2s;display:inline-block}
+.footer-links a:hover{color:#fff;transform:translateX(4px)}
+.footer-bot{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:.68rem}
+.footer-bot a{transition:color .2s}.footer-bot a:hover{color:#fff}
+
+/* ── CART PANEL ── */
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.48);z-index:700;opacity:0;pointer-events:none;transition:opacity .3s}
+.ov.on{opacity:1;pointer-events:all}
+.cart-panel{position:fixed;right:0;top:0;bottom:0;width:min(400px,100vw);background:var(--wh);z-index:701;transform:translateX(100%);transition:transform .35s cubic-bezier(.23,1,.32,1);display:flex;flex-direction:column;box-shadow:-4px 0 36px rgba(0,0,0,.1);overflow:hidden}
+.ov.on .cart-panel{transform:none}
+.cp-head{padding:clamp(14px,2.5vw,22px);border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
+.cp-title{font-family:'Playfair Display',serif;font-size:1.2rem}
+.cp-x{background:none;border:none;cursor:pointer;color:var(--ink2);font-size:1.1rem;padding:4px;transition:color .2s}.cp-x:hover{color:var(--ink)}
+.cp-items{flex:1;min-height:0;overflow-y:auto;padding:clamp(10px,2vw,16px) clamp(12px,2.5vw,22px);-webkit-overflow-scrolling:touch}
+.cp-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:12px;color:var(--ink3);text-align:center}
+.ci{display:grid;grid-template-columns:54px 1fr auto;gap:11px;align-items:start;padding:11px 0;border-bottom:1px solid var(--bd)}
+.ci-img{width:54px;height:54px;background:var(--bg2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ci-img img{width:42px;height:42px;object-fit:contain}
+.ci-brand{font-size:.54rem;letter-spacing:.14em;text-transform:uppercase;color:var(--g);margin-bottom:2px}
+.ci-name{font-family:'Playfair Display',serif;font-size:.86rem;margin-bottom:3px}
+.ci-price{font-size:.78rem;color:var(--ink2)}
+.ci-qty{display:flex;align-items:center;gap:7px;margin-top:6px}
+.qb{width:22px;height:22px;border:1px solid var(--bd);background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:all .2s}.qb:hover{border-color:var(--g);color:var(--g)}
+.qn{font-size:.8rem;min-width:17px;text-align:center}
+.ci-rm{background:none;border:none;cursor:pointer;color:var(--ink3);padding:3px;transition:color .2s;align-self:start}.ci-rm:hover{color:#c0392b}
+.cp-foot{padding:clamp(12px,2vw,18px) clamp(12px,2.5vw,22px);border-top:1px solid var(--bd);flex-shrink:0;background:var(--wh)}
+.cp-row{display:flex;justify-content:space-between;font-size:.77rem;color:var(--ink2);margin-bottom:5px}
+.cp-total{display:flex;justify-content:space-between;font-family:'Playfair Display',serif;font-size:1.1rem;padding-top:8px;border-top:1px solid var(--bd);margin:8px 0 15px}
+
+/* ── PRODUCT MODAL ── */
+.modal-ov{position:fixed;inset:0;background:rgba(0,0,0,.58);z-index:800;opacity:0;pointer-events:none;transition:opacity .25s;display:flex;align-items:center;justify-content:center;padding:clamp(8px,2.5vw,18px);overflow-y:auto}
+.modal-ov.on{opacity:1;pointer-events:all}
+.modal{background:var(--wh);max-width:740px;width:100%;display:grid;grid-template-columns:1fr 1fr;transform:scale(.97);transition:transform .25s;position:relative;max-height:min(92vh,100%);overflow:hidden;margin:auto}
+.modal-ov.on .modal{transform:scale(1)}
+.m-img{background:var(--bg2);display:flex;align-items:center;justify-content:center;padding:clamp(18px,3.5vw,36px);min-height:260px}
+.m-img img{width:100%;max-width:175px;object-fit:contain;filter:drop-shadow(0 16px 32px rgba(0,0,0,.14))}
+.m-body{padding:clamp(18px,3vw,34px);overflow-y:auto;max-height:min(92vh,600px)}
+.m-brand{font-size:.57rem;letter-spacing:.22em;text-transform:uppercase;color:var(--g);margin-bottom:4px}
+.m-name{font-family:'Playfair Display',serif;font-size:clamp(1.15rem,1.8vw+.5rem,1.55rem);font-weight:400;margin-bottom:7px}
+.m-price{font-size:clamp(.88rem,1vw+.4rem,1rem);font-weight:500;margin-bottom:13px}
+.m-desc{font-size:clamp(.74rem,.75vw+.4rem,.8rem);line-height:1.8;color:var(--ink2);margin-bottom:16px}
+.m-btns{display:flex;flex-direction:column;gap:8px}
+.m-x{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.08);border:none;width:30px;height:30px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:background .2s;z-index:1;border-radius:50%}
+.m-x:hover{background:rgba(0,0,0,.18)}
+
+/* ── PAYMENT MODAL ── */
+.pay-ov{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:900;opacity:0;pointer-events:none;transition:opacity .25s;display:flex;align-items:center;justify-content:center;padding:clamp(8px,2vw,16px);overflow-y:auto}
+.pay-ov.on{opacity:1;pointer-events:all}
+.pay-modal{background:var(--wh);max-width:490px;width:100%;transform:scale(.97);transition:transform .25s;max-height:min(94vh,100%);overflow:hidden;display:flex;flex-direction:column;margin:auto;border-radius:2px}
+.pay-ov.on .pay-modal{transform:scale(1)}
+.pay-head{background:var(--ink);padding:clamp(14px,2.5vw,20px) clamp(16px,3.5vw,26px);display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
+.pay-title{font-family:'Playfair Display',serif;font-size:1.12rem;color:#fff}
+.pay-x{background:none;border:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:1.1rem;padding:2px;transition:color .2s}.pay-x:hover{color:#fff}
+.pay-body{padding:clamp(14px,2.5vw,22px) clamp(16px,3.5vw,26px);overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1}
+.pay-sum{background:var(--bg2);padding:12px 14px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center}
+.pay-sum-lbl{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.pay-sum-amt{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--g)}
+/* Method selector */
+.pm-methods{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
+.pm-btn{padding:10px 6px;border:1.5px solid var(--bd);background:var(--wh);cursor:pointer;text-align:center;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:5px;border-radius:4px}
+.pm-btn.active{border-width:2px}
+.pm-btn.bk-m.active{border-color:var(--bkash);background:rgba(226,19,110,.05)}
+.pm-btn.ng-m.active{border-color:var(--nagad);background:rgba(240,90,34,.05)}
+.pm-btn.rk-m.active{border-color:var(--rocket);background:rgba(139,0,0,.05)}
+.pm-icon{width:36px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;border-radius:3px;color:#fff}
+.pm-icon.bk{background:var(--bkash)}.pm-icon.ng{background:var(--nagad)}.pm-icon.rk{background:var(--rocket)}
+.pm-label{font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);font-weight:500}
+/* Merchant number box */
+.merchant-box{background:var(--bg2);border:1.5px dashed var(--bd);padding:14px 16px;margin-bottom:18px;text-align:center;border-radius:4px}
+.merchant-lbl{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.merchant-num{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--ink);letter-spacing:.06em;margin-bottom:4px}
+.merchant-inst{font-size:.7rem;color:var(--ink2);line-height:1.5}
+/* Form */
+.fg{margin-bottom:13px}
+.fl{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin-bottom:5px;display:block}
+.fi{width:100%;padding:10px 12px;border:1px solid var(--bd);background:var(--wh);font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--ink);outline:none;transition:border-color .2s;-webkit-appearance:none;border-radius:0}
+.fi:focus{border-color:var(--g)}
+.fi.err{border-color:#c0392b}
+.frow2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ferr{color:#c0392b;font-size:.68rem;margin-top:3px;display:none}
+/* Screenshot upload */
+.screenshot-area{border:2px dashed var(--bd);padding:18px;text-align:center;cursor:pointer;position:relative;transition:border-color .2s;margin-bottom:13px}
+.screenshot-area:hover{border-color:var(--g)}
+.screenshot-area input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.screenshot-preview{max-height:120px;object-fit:contain;margin:8px auto 0;display:none}
+.pay-btn{width:100%;padding:13px;border:none;color:#fff;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:all .2s;margin-top:4px;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:0}
+.pay-btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.2)}
+.pay-btn.bkash-btn{background:var(--bkash)}.pay-btn.bkash-btn:hover:not(:disabled){background:#c01060}
+.pay-btn.nagad-btn{background:var(--nagad)}.pay-btn.nagad-btn:hover:not(:disabled){background:#d44a18}
+.pay-btn.rocket-btn{background:var(--rocket)}.pay-btn.rocket-btn:hover:not(:disabled){background:#6b0000}
+.pay-btn:disabled{background:var(--ink3);cursor:not-allowed}
+.pay-note{font-size:.62rem;color:var(--ink3);text-align:center;margin-top:8px}
+.spin{width:15px;height:15px;border:2px solid rgba(255,255,255,.3);border-top:2px solid #fff;border-radius:50%;animation:sp .6s linear infinite;display:none}
+@keyframes sp{to{transform:rotate(360deg)}}
+/* Success */
+.pay-success{padding:clamp(22px,4vw,38px) clamp(16px,4vw,26px);text-align:center}
+.s-icon{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:1.5rem}
+.s-icon.ok{background:#e8f5e9;color:#2e7d32}
+.pay-success h3{font-family:'Playfair Display',serif;font-size:1.35rem;margin-bottom:7px}
+.pay-success p{font-size:.8rem;color:var(--ink2);line-height:1.8}
+.order-box{margin-top:16px;padding:12px;background:var(--bg2)}
+.order-lbl{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.order-ref{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--g);margin-top:2px}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:clamp(14px,2.5vw,26px);left:50%;transform:translateX(-50%) translateY(14px);background:var(--ink);color:#fff;padding:10px 20px;font-size:.74rem;letter-spacing:.04em;z-index:1200;opacity:0;pointer-events:none;transition:all .3s;white-space:nowrap;display:flex;align-items:center;gap:7px;border-radius:50px;box-shadow:var(--sh2);max-width:calc(100vw - 28px)}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.tdot{width:6px;height:6px;background:var(--g);border-radius:50%;flex-shrink:0}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:auto;padding-top:clamp(32px,5vw,52px)}
+  .hero-visual{display:none}
+  .tgrid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:clamp(18px,3.5vw,30px)}
+  .nav-links{display:none}
+  .ham{display:flex}
+}
+@media(max-width:600px){
+  .tgrid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .pgrid{grid-template-columns:repeat(2,1fr)}
+  .pactions{display:none}
+  .padd-mob{display:block}
+  .modal{grid-template-columns:1fr;max-height:90vh;width:calc(100vw - 16px)}
+  .m-img{display:none}
+  .m-body{max-height:none;overflow-y:auto}
+  .hero-btns{flex-direction:column}
+  .hero-btns .btn{width:100%}
+  .frow2{grid-template-columns:1fr}
+  .pm-methods{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:380px){
+  .pgrid{grid-template-columns:1fr}
+  .frow2{grid-template-columns:1fr}
+}
+@media(hover:none){
+  .pcard:hover .pimg img{transform:none}
+  .pcard:hover{transform:none;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+  .pactions{display:none}
+  .padd-mob{display:block}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <span class="logo-name">AUR<span>E</span>NYX</span>
+    <span class="logo-sub">Bangladesh</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#collection">Collection</a></li>
+    <li><a href="#brands">Brands</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="cart-btn" onclick="openCart()">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      Cart <span class="badge" id="badge">0</span>
+    </button>
+    <button class="ham" id="ham" onclick="toggleMenu()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mob-nav" id="mobNav">
+  <ul>
+    <li><a href="#collection" onclick="closeMenu()">Collection</a></li>
+    <li><a href="#brands" onclick="closeMenu()">Brands</a></li>
+    <li><a href="#reviews" onclick="closeMenu()">Reviews</a></li>
+    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+  </ul>
+</div>
+
+<!-- BANNER -->
+<div id="bannerSection">
+  <img id="bannerImg" src="" alt="Aurenyx Banner">
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="eyebrow">Premium Analog Watches · Bangladesh</div>
+    <h1>Crafted for<br>Wrists of <em>Distinction.</em></h1>
+    <p class="hero-sub">Aurenyx brings Bangladesh's finest analog timepieces — Swiss-engineered, Japanese-crafted, all fully authenticated and delivered nationwide.</p>
+    <div class="hero-btns">
+      <a href="#collection" class="btn btn-dark">Shop Collection</a>
+    </div>
+    <div class="pay-logos">
+      <div class="pay-logo bk">bKash</div>
+      <div class="pay-logo ng">Nagad</div>
+      <div class="pay-logo rk">Rocket</div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <img src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=520&q=80&auto=format" alt="Luxury analog watch" loading="eager">
+    <div class="hero-chip">
+      <div class="chip-label">Starting from</div>
+      <div class="chip-val">৳ 12,500</div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip" aria-hidden="true"><div class="strip-inner" id="stripInner"></div></div>
+
+<!-- COLLECTION -->
+<section class="section" id="collection">
+  <div class="eyebrow">Authentic Analog Timepieces</div>
+  <h2>Our <em>Collection</em></h2>
+  <p class="sec-sub">Hand-picked analog watches — mechanical, automatic, and chronograph — for the discerning Bangladeshi collector.</p>
+  <div class="filters">
+    <button class="flt on" onclick="doFilter('all',this)">All</button>
+    <button class="flt" onclick="doFilter('automatic',this)">Automatic</button>
+    <button class="flt" onclick="doFilter('chrono',this)">Chronograph</button>
+    <button class="flt" onclick="doFilter('dive',this)">Dive</button>
+    <button class="flt" onclick="doFilter('dress',this)">Dress</button>
+    <button class="flt" onclick="doFilter('sale',this)">Sale</button>
+  </div>
+  <div class="pgrid" id="grid"></div>
+</section>
+
+<!-- DELIVERY BANNER -->
+<div class="delivery-banner">
+  <div class="db-item">
+    <div class="db-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+    <div><div class="db-title">Free Delivery</div><div class="db-desc">Free delivery within Dhaka. Only ৳100 across Bangladesh.</div></div>
+  </div>
+  <div class="db-item">
+    <div class="db-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+    <div><div class="db-title">Certified Authentic</div><div class="db-desc">Every watch verified by our expert team. Sourced from authorized distributors.</div></div>
+  </div>
+  <div class="db-item">
+    <div class="db-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+    <div><div class="db-title">1-Year Warranty</div><div class="db-desc">All watches come with a 1-year international warranty. Free servicing for defects.</div></div>
+  </div>
+  <div class="db-item">
+    <div class="db-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg></div>
+    <div><div class="db-title">24/7 Support</div><div class="db-desc">Contact our team anytime for assistance. We're always here to help.</div></div>
+  </div>
+</div>
+
+<!-- BRANDS -->
+<section class="section" id="brands" style="padding-top:clamp(36px,4.5vw,56px);padding-bottom:clamp(36px,4.5vw,56px)">
+  <div class="eyebrow">Our Brands</div>
+  <h2>Brands We <em>Carry</em></h2>
+  <div class="brands-row">
+    <span class="brand-nm">Tissot</span>
+    <span class="brand-nm">Fossil</span>
+    <span class="brand-nm">Seiko</span>
+    <span class="brand-nm">Orient</span>
+    <span class="brand-nm">Hamilton</span>
+    <span class="brand-nm">Certina</span>
+    <span class="brand-nm">Citizen</span>
+    <span class="brand-nm">Pagani</span>
+    <span class="brand-nm">Longines</span>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section" id="reviews" style="background:var(--bg2)">
+  <div class="eyebrow">Customer Reviews</div>
+  <h2>Trusted by <em>Collectors</em></h2>
+  <div class="tgrid">
+    <div class="tcard">
+      <div class="tstars">★★★★★</div>
+      <p class="ttext">"The Tissot Seastar is absolutely stunning! Paid via bKash and received it the very next day. Truly exceptional service."</p>
+      <div class="tauthor">Rakibul Hasan, Dhaka</div>
+    </div>
+    <div class="tcard">
+      <div class="tstars">★★★★★</div>
+      <p class="ttext">"The Fossil Chronograph is exactly as described. Authentic certificate included. Paid via Nagad — super smooth. Highly recommend!"</p>
+      <div class="tauthor">Tanvir Ahmed, Chittagong</div>
+    </div>
+    <div class="tcard">
+      <div class="tstars">★★★★★</div>
+      <p class="ttext">"This is my third watch from Aurenyx. Premium packaging, original product, and the best price I've found anywhere. Will shop again!"</p>
+      <div class="tauthor">Fatema Akter, Sylhet</div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="nl" id="contact">
+  <div class="eyebrow" style="justify-content:center">Stay Updated</div>
+  <h2>Join the <em>Inner Circle</em></h2>
+  <p class="sec-sub" style="margin:0 auto;text-align:center">Subscribe to get new collections, exclusive deals, and special offers delivered first.</p>
+  <div class="nl-form">
+    <input class="nl-inp" type="email" id="nlEmail" placeholder="your@email.com" autocomplete="email">
+    <button class="nl-sub" onclick="subscribe()">Subscribe</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">AURENYX</div>
+      <div class="footer-bd">Bangladesh · Premium Watches</div>
+      <p class="footer-sub">Bangladesh's premier analog watch curator. Trusted service since 2019.</p>
+      <div class="footer-pay">
+        <span class="fp-badge" style="color:var(--bkash);border-color:rgba(226,19,110,.3)">bKash</span>
+        <span class="fp-badge" style="color:var(--nagad);border-color:rgba(240,90,34,.3)">Nagad</span>
+        <span class="fp-badge" style="color:var(--rocket);border-color:rgba(139,0,0,.25)">Rocket</span>
+      </div>
+    </div>
+    <div>
+      <div class="footer-hl">Shop</div>
+      <ul class="footer-links">
+        <li><a href="#collection">Automatic Watches</a></li>
+        <li><a href="#collection">Chronographs</a></li>
+        <li><a href="#collection">Dive Watches</a></li>
+        <li><a href="#collection">Dress Watches</a></li>
+        <li><a href="#collection">Sale</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-hl">Services</div>
+      <ul class="footer-links">
+        <li><a href="#">Authentication</a></li>
+        <li><a href="#">Servicing</a></li>
+        <li><a href="#">Warranty Claim</a></li>
+        <li><a href="#">Refund Policy</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-hl">About</div>
+      <ul class="footer-links">
+        <li><a href="#">About Aurenyx</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <span>© 2025 Aurenyx Bangladesh. All rights reserved.</span>
+    <div style="display:flex;gap:18px"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Refund Policy</a></div>
+  </div>
+</footer>
+
+<!-- CART OVERLAY -->
+<div class="ov" id="cartOv">
+  <div class="cart-panel">
+    <div class="cp-head"><span class="cp-title">Your Cart</span><button class="cp-x" onclick="closeCart()">✕</button></div>
+    <div class="cp-items" id="cpItems">
+      <div class="cp-empty" id="cpEmpty">
+        <svg width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span style="font-size:.82rem">Your cart is empty</span>
+        <button class="btn btn-dark" style="font-size:.66rem;padding:9px 16px" onclick="closeCart()">Browse Collection</button>
+      </div>
+    </div>
+    <div class="cp-foot" id="cpFoot" style="display:none">
+      <div class="cp-row"><span>Subtotal</span><span id="cpSub">৳ 0</span></div>
+      <div class="cp-row"><span>Delivery</span><span style="color:var(--g)">Free within Dhaka</span></div>
+      <div class="cp-total"><span>Total</span><span id="cpTotal">৳ 0</span></div>
+      <button class="btn btn-gold" style="width:100%" onclick="openPay()">
+        Checkout — Pay via Mobile Banking
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="btn btn-ghost" style="width:100%;margin-top:7px" onclick="closeCart()">Continue Shopping</button>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-ov" id="prodOv">
+  <div class="modal">
+    <button class="m-x" onclick="closeProd()">✕</button>
+    <div class="m-img"><img id="mImg" src="" alt="" loading="lazy"></div>
+    <div class="m-body">
+      <div class="m-brand" id="mBrand"></div>
+      <div class="m-name" id="mName"></div>
+      <div class="m-price" id="mPrice"></div>
+      <p class="m-desc" id="mDesc"></p>
+      <div class="m-btns">
+        <button class="btn btn-gold" style="width:100%" id="mAddBtn">Add to Cart</button>
+        <button class="btn btn-dark" style="width:100%" id="mBuyBtn">Buy Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAYMENT MODAL -->
+<div class="pay-ov" id="payOv">
+  <div class="pay-modal">
+    <div class="pay-head">
+      <span class="pay-title">Complete Your Order</span>
+      <button class="pay-x" onclick="closePay()">✕</button>
+    </div>
+    <div id="payForm" style="overflow-y:auto;flex:1">
+      <div class="pay-body">
+        <div class="pay-sum">
+          <div class="pay-sum-lbl">Total Amount</div>
+          <div class="pay-sum-amt" id="payTotal">৳ 0</div>
+        </div>
+
+        <!-- Step 1: Method -->
+        <div style="font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);margin-bottom:10px">1. Select Payment Method</div>
+        <div class="pm-methods">
+          <button class="pm-btn bk-m active" onclick="selectPM('bkash',this)">
+            <div class="pm-icon bk">bK</div>
+            <div class="pm-label">bKash</div>
+          </button>
+          <button class="pm-btn ng-m" onclick="selectPM('nagad',this)">
+            <div class="pm-icon ng">NG</div>
+            <div class="pm-label">Nagad</div>
+          </button>
+          <button class="pm-btn rk-m" onclick="selectPM('rocket',this)">
+            <div class="pm-icon rk">RK</div>
+            <div class="pm-label">Rocket</div>
+          </button>
+        </div>
+
+        <!-- Step 2: Send money instruction -->
+        <div style="font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);margin-bottom:10px">2. Send Money to This Number</div>
+        <div class="merchant-box" id="merchantBox">
+          <div class="merchant-lbl" id="merchantMethodLabel">bKash Number</div>
+          <div class="merchant-num" id="merchantNum">Loading...</div>
+          <div class="merchant-inst">Send exactly <strong id="payTotalInBox">৳ 0</strong> to the number above, then fill in your details below.</div>
+        </div>
+
+        <!-- Step 3: Order form -->
+        <div style="font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);margin-bottom:12px">3. Fill Your Details</div>
+        <div class="fg"><label class="fl">Your Name *</label><input class="fi" id="oName" type="text" placeholder="Full name"><div class="ferr" id="errOName">Please enter your name</div></div>
+        <div class="fg"><label class="fl">Phone Number *</label><input class="fi" id="oPhone" type="tel" placeholder="01XXXXXXXXX" inputmode="numeric"><div class="ferr" id="errOPhone">Please enter a valid phone number</div></div>
+        <div class="fg"><label class="fl">Delivery Address *</label><input class="fi" id="oAddr" type="text" placeholder="House, Road, Area, City"><div class="ferr" id="errOAddr">Please enter your delivery address</div></div>
+        <div class="fg"><label class="fl">Your <span id="pmMethodLabel">bKash</span> Number *</label><input class="fi" id="oPayNum" type="tel" placeholder="Number you sent from" inputmode="numeric"><div class="ferr" id="errOPayNum">Please enter your payment number</div></div>
+        <div class="fg"><label class="fl">Transaction ID *</label><input class="fi" id="oTxId" type="text" placeholder="Transaction/Txn ID from your payment"><div class="ferr" id="errOTxId">Please enter the transaction ID</div></div>
+        <div class="fg">
+          <label class="fl">Payment Screenshot (Optional)</label>
+          <div class="screenshot-area" id="ssArea">
+            <input type="file" id="ssFile" accept="image/*" onchange="handleScreenshot(this)">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="margin:0 auto 6px"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <div style="font-size:.76rem;color:var(--ink2)">Tap to upload screenshot</div>
+            <img id="ssPreview" class="screenshot-preview" alt="Screenshot">
+          </div>
+        </div>
+        <button class="pay-btn bkash-btn" id="submitOrderBtn" onclick="submitOrder()">
+          <span id="submitTxt">Confirm Order</span>
+          <div class="spin" id="submitSpin"></div>
+        </button>
+        <div class="pay-note">Your order will be confirmed once payment is verified by our team.</div>
+      </div>
+    </div>
+    <div id="paySuccess" style="display:none">
+      <div class="pay-success">
+        <div class="s-icon ok">✓</div>
+        <h3>Order Placed!</h3>
+        <p>Thank you! Your order has been received. Our team will verify your payment and confirm your order within 1-2 hours via phone.</p>
+        <div class="order-box"><div class="order-lbl">Order ID</div><div class="order-ref" id="orderRef"></div></div>
+        <button class="btn btn-dark" style="width:100%;margin-top:18px;justify-content:center" onclick="afterSuccess()">Continue Shopping</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><span class="tdot"></span><span id="tMsg"></span></div>
+
+<script>
+// ═══════════════════════════════════
+// STATE
+// ═══════════════════════════════════
+let P = [];
+let cart = [];
+let currentPM = 'bkash';
+let merchantNumbers = { bkash: '', nagad: '', rocket: '' };
+let screenshotFile = null;
+
+// ═══════════════════════════════════
+// INIT
+// ═══════════════════════════════════
+async function init() {
+  await Promise.all([loadProducts(), loadBanner(), loadSettings()]);
+}
+
+async function loadProducts() {
+  try {
+    const res = await fetch('/api/products');
+    const api = await res.json();
+    P = api.map(p => ({
+      id: p.id,
+      brand: p.brand || '',
+      name: p.name || '',
+      price: p.salePrice || p.regularPrice,
+      old: p.salePrice ? p.regularPrice : null,
+      cat: p.category || 'other',
+      badge: p.badge || null,
+      stock: p.stock || 0,
+      img: p.image || '',
+      desc: p.desc || ''
+    }));
+    renderGrid('all');
+  } catch(e) {
+    document.getElementById('grid').innerHTML = '<div style="color:#c0392b;padding:20px">Failed to load products. Please refresh.</div>';
+  }
+}
+
+async function loadBanner() {
+  try {
+    const res = await fetch('/api/banner');
+    const data = await res.json();
+    if (data.imageUrl) {
+      document.getElementById('bannerSection').style.display = 'block';
+      document.getElementById('bannerImg').src = data.imageUrl;
+    }
+  } catch(e) {}
+}
+
+async function loadSettings() {
+  try {
+    const res = await fetch('/api/settings');
+    const data = await res.json();
+    merchantNumbers = data.merchantNumbers || merchantNumbers;
+    updateMerchantBox();
+  } catch(e) {}
+}
+
+// ═══════════════════════════════════
+// PRODUCTS
+// ═══════════════════════════════════
+function renderGrid(cat) {
+  const g = document.getElementById('grid');
+  g.innerHTML = '';
+  P.forEach(p => {
+    const show = cat === 'all' || p.cat === cat || (cat === 'sale' && p.old);
+    const d = document.createElement('div');
+    d.className = 'pcard' + (show ? '' : ' hidden');
+    const bc = p.badge === 'new' ? 'b-new' : p.badge === 'sale' ? 'b-sale' : 'b-hot';
+    const bl = p.badge === 'new' ? 'New' : p.badge === 'hot' ? 'Best Seller' : 'Sale';
+    d.innerHTML = `
+      <div class="pimg">
+        <img src="${p.img}" alt="${p.brand} ${p.name}" loading="lazy" width="260" height="260"
+          onerror="this.src='https://placehold.co/260x260/f4f3ef/b8973e?text=Watch'">
+        ${p.badge ? `<span class="pbadge ${bc}">${bl}</span>` : ''}
+        <div class="pactions">
+          <button class="pac" onclick="openProd('${p.id}')" title="View details">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+          <button class="pac" onclick="addById('${p.id}')" title="Add to cart">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="pinfo">
+        <div class="pbrand">${p.brand}</div>
+        <div class="pname" style="cursor:pointer" onclick="openProd('${p.id}')">${p.name}</div>
+        <div class="pprices">
+          <span class="pprice">৳ ${p.price.toLocaleString()}</span>
+          ${p.old ? `<span class="pprice-old">৳ ${p.old.toLocaleString()}</span>` : ''}
+        </div>
+      </div>
+      <div class="pbtns">
+        <button class="btn btn-outline-gold" onclick="addById('${p.id}')">Add to Cart</button>
+        <button class="btn btn-dark" onclick="buyNow('${p.id}')">Buy Now</button>
+      </div>
+      <button class="padd-mob" onclick="addById('${p.id}')">+ Add to Cart</button>`;
+    g.appendChild(d);
+  });
+}
+
+function doFilter(cat, btn) {
+  document.querySelectorAll('.flt').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  renderGrid(cat);
+}
+
+function addById(id, fromModal) {
+  const p = P.find(x => x.id === id); if (!p) return;
+  const ex = cart.find(x => x.id === id);
+  ex ? ex.qty++ : cart.push({...p, qty: 1});
+  syncCart();
+  showToast(p.name + ' added to cart ✓');
+  if (fromModal) closeProd();
+}
+
+function buyNow(id, fromModal) {
+  const p = P.find(x => x.id === id); if (!p) return;
+  const ex = cart.find(x => x.id === id);
+  ex ? ex.qty++ : cart.push({...p, qty: 1});
+  syncCart();
+  if (fromModal) closeProd();
+  openPay();
+}
+
+function removeCI(id) { cart = cart.filter(x => x.id !== id); syncCart(); drawCart(); }
+function chQty(id, d) {
+  const i = cart.find(x => x.id === id); if (!i) return;
+  i.qty += d;
+  if (i.qty <= 0) removeCI(id); else { syncCart(); drawCart(); }
+}
+
+function syncCart() {
+  const tot = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  const cnt = cart.reduce((s, i) => s + i.qty, 0);
+  const b = document.getElementById('badge');
+  b.textContent = cnt; b.className = 'badge' + (cnt ? ' on' : '');
+  document.getElementById('cpSub').textContent = '৳ ' + tot.toLocaleString();
+  document.getElementById('cpTotal').textContent = '৳ ' + tot.toLocaleString();
+  document.getElementById('cpFoot').style.display = cart.length ? '' : 'none';
+  drawCart();
+}
+
+function drawCart() {
+  const c = document.getElementById('cpItems');
+  c.querySelectorAll('.ci').forEach(e => e.remove());
+  document.getElementById('cpEmpty').style.display = cart.length ? 'none' : 'flex';
+  cart.forEach(item => {
+    const el = document.createElement('div'); el.className = 'ci';
+    el.innerHTML = `
+      <div class="ci-img"><img src="${item.img}" alt="${item.name}" loading="lazy" width="42" height="42"
+        onerror="this.src='https://placehold.co/42x42/f4f3ef/b8973e?text=W'"></div>
+      <div>
+        <div class="ci-brand">${item.brand}</div>
+        <div class="ci-name">${item.name}</div>
+        <div class="ci-price">৳ ${item.price.toLocaleString()}</div>
+        <div class="ci-qty">
+          <button class="qb" onclick="chQty('${item.id}',-1)">−</button>
+          <span class="qn">${item.qty}</span>
+          <button class="qb" onclick="chQty('${item.id}',1)">+</button>
+        </div>
+      </div>
+      <button class="ci-rm" onclick="removeCI('${item.id}')" title="Remove">
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>`;
+    c.appendChild(el);
+  });
+}
+
+function openCart() {
+  const ov = document.getElementById('cartOv');
+  ov.classList.add('on'); document.body.style.overflow = 'hidden';
+  ov.onclick = e => { if (!e.target.closest('.cart-panel')) closeCart(); };
+}
+function closeCart() { document.getElementById('cartOv').classList.remove('on'); document.body.style.overflow = ''; }
+
+// ── PRODUCT MODAL ──
+function openProd(id) {
+  const p = P.find(x => x.id === id); if (!p) return;
+  document.getElementById('mImg').src = p.img;
+  document.getElementById('mBrand').textContent = p.brand;
+  document.getElementById('mName').textContent = p.name;
+  document.getElementById('mPrice').textContent = '৳ ' + p.price.toLocaleString() + (p.old ? '  ·  Was ৳ ' + p.old.toLocaleString() : '');
+  document.getElementById('mDesc').textContent = p.desc;
+  document.getElementById('mAddBtn').onclick = () => addById(id, true);
+  document.getElementById('mBuyBtn').onclick = () => buyNow(id, true);
+  const ov = document.getElementById('prodOv');
+  ov.classList.add('on'); document.body.style.overflow = 'hidden';
+  ov.onclick = e => { if (!e.target.closest('.modal')) closeProd(); };
+}
+function closeProd() { document.getElementById('prodOv').classList.remove('on'); document.body.style.overflow = ''; }
+
+// ── PAYMENT ──
+function updateMerchantBox() {
+  const num = merchantNumbers[currentPM] || '';
+  const labels = { bkash: 'bKash Number', nagad: 'Nagad Number', rocket: 'Rocket Number' };
+  document.getElementById('merchantMethodLabel').textContent = labels[currentPM] || '';
+  document.getElementById('merchantNum').textContent = num || 'Contact us for payment number';
+  document.getElementById('pmMethodLabel').textContent = currentPM.charAt(0).toUpperCase() + currentPM.slice(1);
+  // Update button color
+  const btn = document.getElementById('submitOrderBtn');
+  btn.className = 'pay-btn ' + currentPM + '-btn';
+}
+
+function selectPM(pm, el) {
+  currentPM = pm;
+  document.querySelectorAll('.pm-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  updateMerchantBox();
+}
+
+function openPay() {
+  closeCart();
+  const tot = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  document.getElementById('payTotal').textContent = '৳ ' + tot.toLocaleString();
+  document.getElementById('payTotalInBox').textContent = '৳ ' + tot.toLocaleString();
+  document.getElementById('payForm').style.display = '';
+  document.getElementById('paySuccess').style.display = 'none';
+  resetPayForm();
+  updateMerchantBox();
+  const ov = document.getElementById('payOv');
+  ov.classList.add('on'); document.body.style.overflow = 'hidden';
+  ov.onclick = e => { if (!e.target.closest('.pay-modal')) closePay(); };
+}
+function closePay() { document.getElementById('payOv').classList.remove('on'); document.body.style.overflow = ''; }
+function afterSuccess() { closePay(); cart = []; syncCart(); }
+
+function resetPayForm() {
+  ['oName','oPhone','oAddr','oPayNum','oTxId'].forEach(id => { const el = document.getElementById(id); if(el) el.value = ''; });
+  document.querySelectorAll('.ferr').forEach(e => e.style.display = 'none');
+  document.querySelectorAll('.fi').forEach(i => i.classList.remove('err'));
+  screenshotFile = null;
+  const prev = document.getElementById('ssPreview');
+  if(prev) { prev.style.display = 'none'; prev.src = ''; }
+  // Reset method to bkash
+  currentPM = 'bkash';
+  document.querySelectorAll('.pm-btn').forEach(b => b.classList.remove('active'));
+  const bkBtn = document.querySelector('.pm-btn.bk-m');
+  if(bkBtn) bkBtn.classList.add('active');
+}
+
+function handleScreenshot(input) {
+  if (!input.files[0]) return;
+  screenshotFile = input.files[0];
+  const reader = new FileReader();
+  reader.onload = e => {
+    const prev = document.getElementById('ssPreview');
+    prev.src = e.target.result; prev.style.display = 'block';
+  };
+  reader.readAsDataURL(screenshotFile);
+}
+
+async function submitOrder() {
+  // Validate
+  let ok = true;
+  document.querySelectorAll('.ferr').forEach(e => e.style.display = 'none');
+  document.querySelectorAll('.fi').forEach(i => i.classList.remove('err'));
+
+  const name   = document.getElementById('oName').value.trim();
+  const phone  = document.getElementById('oPhone').value.trim();
+  const addr   = document.getElementById('oAddr').value.trim();
+  const payNum = document.getElementById('oPayNum').value.trim();
+  const txId   = document.getElementById('oTxId').value.trim();
+
+  if (name.length < 2)  { show('errOName');  mark('oName');   ok=false; }
+  if (!/^01[3-9]\d{8}$/.test(phone.replace(/\s/g,''))) { show('errOPhone'); mark('oPhone'); ok=false; }
+  if (addr.length < 5)  { show('errOAddr');  mark('oAddr');   ok=false; }
+  if (payNum.length < 6){ show('errOPayNum');mark('oPayNum'); ok=false; }
+  if (txId.length < 4)  { show('errOTxId');  mark('oTxId');   ok=false; }
+  if (!ok) return;
+
+  const btn = document.getElementById('submitOrderBtn');
+  const txt = document.getElementById('submitTxt');
+  const sp  = document.getElementById('submitSpin');
+  btn.disabled = true; txt.textContent = 'Placing Order...'; sp.style.display = 'block';
+
+  try {
+    const fd = new FormData();
+    fd.append('customerName', name);
+    fd.append('phone', phone);
+    fd.append('address', addr);
+    fd.append('paymentMethod', currentPM);
+    fd.append('paymentNumber', payNum);
+    fd.append('transactionId', txId);
+    fd.append('totalAmount', cart.reduce((s,i)=>s+i.price*i.qty,0));
+    fd.append('items', JSON.stringify(cart.map(i=>({id:i.id,name:i.name,brand:i.brand,price:i.price,qty:i.qty}))));
+    if (screenshotFile) fd.append('screenshot', screenshotFile);
+
+    const res = await fetch('/api/orders', { method:'POST', body: fd });
+    const data = await res.json();
+    if (res.ok && data.ok) {
+      document.getElementById('payForm').style.display = 'none';
+      document.getElementById('paySuccess').style.display = '';
+      document.getElementById('orderRef').textContent = data.orderId;
+    } else { showToast('Something went wrong. Please try again.'); }
+  } catch { showToast('Network error. Please check your connection.'); }
+
+  btn.disabled = false; txt.textContent = 'Confirm Order'; sp.style.display = 'none';
+}
+
+function show(id) { const el = document.getElementById(id); if(el) el.style.display = 'block'; }
+function mark(id) { const el = document.getElementById(id); if(el) el.classList.add('err'); }
+
+// ── NEWSLETTER ──
+function subscribe() {
+  const v = document.getElementById('nlEmail').value.trim();
+  if (!v || !v.includes('@')) { showToast('Please enter a valid email'); return; }
+  showToast('Welcome! You have subscribed ✦');
+  document.getElementById('nlEmail').value = '';
+}
+
+// ── MOBILE NAV ──
+function toggleMenu() {
+  const h = document.getElementById('ham'), m = document.getElementById('mobNav');
+  const o = !m.classList.contains('open');
+  h.classList.toggle('open', o); m.classList.toggle('open', o);
+}
+function closeMenu() {
+  document.getElementById('ham').classList.remove('open');
+  document.getElementById('mobNav').classList.remove('open');
+}
+document.addEventListener('click', e => { if (!e.target.closest('nav') && !e.target.closest('.mob-nav')) closeMenu(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeMenu(); closeCart(); closeProd(); closePay(); } });
+
+// ── TOAST ──
+let tTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('tMsg').textContent = msg;
+  t.classList.add('on'); clearTimeout(tTimer);
+  tTimer = setTimeout(() => t.classList.remove('on'), 2800);
+}
+
+// ── STRIP ──
+const SI = ['Free Delivery in Dhaka', 'Certified Authentic', 'bKash · Nagad · Rocket', '1-Year Warranty', 'Pay via Mobile Banking', 'Nationwide Delivery'];
+const si = document.getElementById('stripInner');
+[...SI, ...SI].forEach(t => { const s = document.createElement('span'); s.className = 'strip-item'; s.innerHTML = `<b>✦</b> ${t}`; si.appendChild(s); });
+
+// Start
+init();
+</script>
+</body>
+</html>
